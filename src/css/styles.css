@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
@@ -10,6 +11,8 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 #search-box {
@@ -17,4 +20,25 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+}
+
+.country-list{
+  padding: 0;
+}
+
+.country-list__response{
+  display: flex;
+  margin: 9px 0;
+}
+
+.country-list__image{
+  width: 30px;
+  height: 18px;
+}
+
+.country-list__cName{
+  font-weight: 500;
+  line-height: 18px;
+  font-size: 0.8em;
+  margin-left: 9px;
 }
