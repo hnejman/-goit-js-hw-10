@@ -5,11 +5,11 @@
   "homepage": "https://hnejman.github.io/goit-js-hw-10/src",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-10/src/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://hnejman.github.io/goit-js-hw-10/src"
+    "url": "git+https://hnejman.github.io/goit-js-hw-10/src/"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
