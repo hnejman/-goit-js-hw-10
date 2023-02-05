@@ -4,9 +4,7 @@ import debounce from 'lodash.debounce';
 const searchBox = document.querySelector('#search-box');
 const countryInfo = document.querySelector('.country-info');
 const countryList = document.querySelector('.country-list');
-
 const parameters = ["capital", "population", "languages"]
-
 
 function showCountries(country){
     const response = document.createElement("div");
@@ -21,9 +19,9 @@ function showCountries(country){
     response.insertAdjacentElement("beforeend",flag);
     response.insertAdjacentElement("beforeend",cName);
 };
+
 function showCountriesExpanded(country){
     showCountries(country);
-    console.log(country);
     const description = document.createElement("ul");
     description.classList.add("country-Info__list");
     countryInfo.appendChild(description);
@@ -52,14 +50,13 @@ function showCountriesExpanded(country){
 
 function clearResponse(){
   if(countryList.childNodes.length!=0){
-    countryList.childNodes.forEach(()=>{
-      countryList.childNodes[0].remove();
-    })
+    console.log(countryList.children.length);
+    for(let i = countryList.childNodes.length-1; i >= 0; i--){
+      countryList.childNodes[i].remove();
+    }
   }
   if(countryInfo.childNodes.length!=0){
-    countryInfo.childNodes.forEach(()=>{
       countryInfo.childNodes[0].remove();
-    })
   }
 };
 
@@ -71,13 +68,12 @@ function fetchCountries(name) {
         r.forEach(country => {
             showCountries(country);
         });
-      }else if(r.length == 0){
-        Notiflix.Notify.failure("Error: error 404 - page not found")
       }else if(r.length == 1){
             showCountriesExpanded(r[0]);
-            console.log(r[0]);
-      }else{
+      }else if(r.length > 10){
         Notiflix.Notify.info("Too many matches found. Please enter a more specific name.");
+      }else{
+        Notiflix.Notify.failure("Error: error 404 - page not found");
       }
     })
     .catch(e => {
@@ -85,12 +81,13 @@ function fetchCountries(name) {
       console.log('Error:', e);
     });
 }
+
 searchBox.addEventListener(
   'input',
   debounce(e => {
     clearResponse();
     if (searchBox.value.trim() != 0) {
-      console.log(fetchCountries('https://restcountries.com/v3.1/name/' + searchBox.value));
+      fetchCountries('https://restcountries.com/v3.1/name/' + searchBox.value);
     }
   }, 300)
 );
