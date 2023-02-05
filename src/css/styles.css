@@ -42,3 +42,7 @@ body {
   font-size: 0.8em;
   margin-left: 9px;
 }
+
+.country-Info__tag{
+  font-weight: bold;
+}
