@@ -5,7 +5,7 @@
   "homepage": "https://hnejman.github.io/goit-js-hw-10/src",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-10/src/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
   },
   "repository": {
     "type": "git",
